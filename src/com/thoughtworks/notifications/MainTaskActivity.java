@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import com.thoughtworks.notifications.model.Task;
 
 import java.util.ArrayList;
 
@@ -15,26 +16,20 @@ import static com.thoughtworks.notifications.NotificationsConstants.*;
 
 public class MainTaskActivity extends ListActivity {
 
-    ArrayList<String> items = new ArrayList<String>();
-    private ArrayAdapter<String> listAdapter;
+    //TODO make ArrayList of Tasks OR use cursor adapter
+    ArrayList<Task> items = new ArrayList<Task>();
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        String todo = (String) getListView().getItemAtPosition(position);
-        Intent intent = new Intent(this, NewToDoActivity.class);
-        intent.putExtra(TITLE_KEY, todo);
-        startActivity(intent);
-    }
+    private ArrayAdapter<Task> listAdapter;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                items);
+        listAdapter = new ArrayAdapter<Task>(
+                this, android.R.layout.simple_list_item_1, items);
+        items.add(new Task("sample task"));
+        items.add(new Task("delete me once u r comfortable"));
 
-        // TODO loadfrom db
+        // TODO load list from db
         setContentView(R.layout.main_task_layout);
         setListAdapter(listAdapter);
     }
@@ -48,10 +43,20 @@ public class MainTaskActivity extends ListActivity {
     public void addTask(View view) {
         Editable taskTitleField = ((EditText) findViewById(R.id.txtTaskTitle)).getText();
 
-        items.add(0, taskTitleField.toString());
+        items.add(0, new Task(taskTitleField.toString()));
         listAdapter.notifyDataSetChanged();
 
         taskTitleField.clear();
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        Task currentTask = (Task) getListView().getItemAtPosition(position);
+        Intent intent = new Intent(this, NewToDoActivity.class);
+        intent.putExtra(TITLE_KEY, currentTask.getTitle()); // TODO pass id here instead of title
+        startActivity(intent);
     }
 
 }
