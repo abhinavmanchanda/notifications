@@ -11,14 +11,7 @@
         android:label="@string/app_name" >
         <activity
             android:name=".NotificationsActivity"
-<<<<<<< HEAD
-            android:label="@string/app_name" >
-=======
             android:label="@string/app_name" android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
->>>>>>> Argha : Calendar + Camera Integration Spike
-
         </activity>
         <activity android:name=".MainTaskActivity" android:label="MainTaskActivityLabel">
             <intent-filter>
