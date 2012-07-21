@@ -17,7 +17,9 @@ public class NewToDoActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		Intent intent = getIntent();
 		setContentView(R.layout.newtodo);
+		((EditText)findViewById(R.id.todoText)).setText(intent.getStringExtra(TITLE_KEY));
 	}
 	
 	public void submit(View view) {

@@ -30,7 +30,7 @@ public class NotificationsActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+//        setContentView(R.layout.main);
     }
     public void submit(View view){
     	Context ctx = getApplicationContext();
@@ -51,13 +51,7 @@ public class NotificationsActivity extends Activity {
         intent.putExtra("endTime", calendar.getTimeInMillis()+60*60*1000);
         startActivity(intent);
     }
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
-        if (requestCode == 9999) {  
-            Bitmap photo = (Bitmap) data.getExtras().get("data"); 
-            ((ImageView) findViewById(R.id.imageView)).setImageBitmap(photo);
-        }  
-    } 
-
+   
 
     public void newTask(View view){
     	Intent intent = new Intent(this, NewToDoActivity.class);
@@ -71,6 +65,10 @@ public class NotificationsActivity extends Activity {
 		if(requestCode == REQUEST_CODE) {
 			setData(data);
 		}
+		if (requestCode == 9999) {  
+            Bitmap photo = (Bitmap) data.getExtras().get("data"); 
+//            ((ImageView) findViewById(R.id.imageView)).setImageBitmap(photo);
+        }  
 	}
 
 	private void setData(Intent data) {
@@ -79,7 +77,7 @@ public class NotificationsActivity extends Activity {
 		int month = bundleData.getInt(MONTH_KEY);
 		int year = bundleData.getInt(YEAR_KEY);
 		String title = bundleData.getString(TITLE_KEY);
-		((TextView)findViewById(R.id.testText)).setText(title + "--Date--" + day +"/"+month+"/"+year);;
+//		((TextView)findViewById(R.id.testText)).setText(title + "--Date--" + day +"/"+month+"/"+year);;
 	}
 	
 }
