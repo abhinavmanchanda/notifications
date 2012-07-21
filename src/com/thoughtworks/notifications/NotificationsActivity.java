@@ -17,9 +17,16 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import static com.thoughtworks.notifications.NotificationsConstants.*;
 
 public class NotificationsActivity extends Activity {
-    /** Called when the activity is first created. */
+    private static final int REQUEST_CODE = 500;
+
+	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,4 +57,29 @@ public class NotificationsActivity extends Activity {
             ((ImageView) findViewById(R.id.imageView)).setImageBitmap(photo);
         }  
     } 
+
+
+    public void newTask(View view){
+    	Intent intent = new Intent(this, NewToDoActivity.class);
+    	startActivityForResult(intent, REQUEST_CODE);
+    }
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == REQUEST_CODE) {
+			setData(data);
+		}
+	}
+
+	private void setData(Intent data) {
+		Bundle bundleData = data.getExtras();
+		int day = bundleData.getInt(DAY_KEY);
+		int month = bundleData.getInt(MONTH_KEY);
+		int year = bundleData.getInt(YEAR_KEY);
+		String title = bundleData.getString(TITLE_KEY);
+		((TextView)findViewById(R.id.testText)).setText(title + "--Date--" + day +"/"+month+"/"+year);;
+	}
+	
 }

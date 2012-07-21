@@ -3,6 +3,10 @@
 	<name>test</name>
 	<comment></comment>
 	<projects>
+<<<<<<< HEAD
+=======
+		<project>com.thoughtworks.notifications.NotificationsActivity</project>
+>>>>>>>  jigish -- first commit with new todo activity
 	</projects>
 	<buildSpec>
 		<buildCommand>

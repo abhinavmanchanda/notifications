@@ -4,5 +4,9 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+<<<<<<< HEAD
+=======
+	<classpathentry combineaccessrules="false" kind="src" path="/com.thoughtworks.notifications.NotificationsActivity"/>
+>>>>>>>  jigish -- first commit with new todo activity
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
