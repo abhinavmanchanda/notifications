@@ -2,3 +2,8 @@
 gen/
 bin/
 out/
+.idea
+.classpath
+.project
+.iws
+.ipr
