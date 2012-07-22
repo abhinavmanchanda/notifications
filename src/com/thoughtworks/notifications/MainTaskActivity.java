@@ -26,8 +26,8 @@ public class MainTaskActivity extends ListActivity {
 
         listAdapter = new ArrayAdapter<Task>(
                 this, android.R.layout.simple_list_item_1, items);
-        items.add(new Task("sample task"));
-        items.add(new Task("delete me once u r comfortable"));
+//        items.add(new Task("sample task"));
+//        items.add(new Task("delete me once u r comfortable"));
 
         // TODO load list from db
         setContentView(R.layout.main_task_layout);
