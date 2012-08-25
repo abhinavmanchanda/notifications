@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.thoughtworks.notifications.test.stubs.DataRepositoryStub;
+import com.thoughtworks.notifications.test.utils.TestUtilities;
 
 
 public class MainTaskActivityTest extends ActivityInstrumentationTestCase2<MainTaskActivity>{
@@ -19,7 +20,6 @@ public class MainTaskActivityTest extends ActivityInstrumentationTestCase2<MainT
 
 	public MainTaskActivityTest() {
 		super(MainTaskActivity.class);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class MainTaskActivityTest extends ActivityInstrumentationTestCase2<MainT
 	}
 	
 	public void testButtonAddsItemToList() throws InterruptedException{
-		setEditText(R.id.txtTaskTitle, "Notification!", activity);
+		TestUtilities.setEditText(R.id.txtTaskTitle, "Notification!", activity, this);
 		Button button = (Button) activity.findViewById(R.id.btnAddTask);
 		TouchUtils.clickView(this, button);
 		ListView list = (ListView) activity.findViewById(android.R.id.list);
@@ -39,20 +39,6 @@ public class MainTaskActivityTest extends ActivityInstrumentationTestCase2<MainT
 	}
 	
 		
-	private void setEditText(final EditText editText,	final String text, Activity currentActivity) {
-		currentActivity.runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				editText.setText(text);
-			}
-		});
-		getInstrumentation().waitForIdleSync();
-	}
-	
-	private void setEditText(int id, String text, Activity currentActivity){
-		EditText editText = (EditText) currentActivity.findViewById(id);
-		setEditText(editText, "Notification!", activity);
-	}
-	
+
 
 }
