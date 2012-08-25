@@ -5,6 +5,6 @@ out/
 .idea
 .classpath
 .project
-.iws
-.ipr
-.iml
+*.iws
+*.ipr
+*.iml
