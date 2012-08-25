@@ -6,11 +6,24 @@ public class Task {
 
     private long id;
 
-    private String title;
+    private String name;
     private Date dueDate;
 
-    public Task(String title) {
-        this.title = title;
+    public Task(long id, String name, String description) {
+
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    private String description;
+
+    public Task(String name) {
+        this.name = name;
     }
 
     public long getId() {
@@ -21,12 +34,12 @@ public class Task {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getDueDate() {
@@ -41,6 +54,6 @@ public class Task {
 
     @Override
     public String toString() {
-        return title;
+        return name;
     }
 }
