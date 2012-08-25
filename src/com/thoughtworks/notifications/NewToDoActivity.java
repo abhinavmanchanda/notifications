@@ -25,7 +25,6 @@ public class NewToDoActivity extends Activity{
 
   @Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		Intent intent = getIntent();
 		setContentView(R.layout.newtodo);
