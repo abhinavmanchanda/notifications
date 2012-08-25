@@ -3,6 +3,7 @@ package com.thoughtworks.notifications.test;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.thoughtworks.notifications.MainTaskActivity;
@@ -29,7 +30,7 @@ public class MainTaskActivityTest extends ActivityInstrumentationTestCase2<MainT
 
     public void testButtonAddsItemToList() throws InterruptedException {
         TestUtilities.setEditText(R.id.txtTaskTitle, "Notification!", activity, this);
-        Button button = (Button) activity.findViewById(R.id.btnAddTask);
+        ImageButton button = (ImageButton) activity.findViewById(R.id.btnAddTask);
         TouchUtils.clickView(this, button);
         ListView list = (ListView) activity.findViewById(android.R.id.list);
         assertEquals(1, list.getChildCount());

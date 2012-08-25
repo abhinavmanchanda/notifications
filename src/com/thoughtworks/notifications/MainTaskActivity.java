@@ -28,7 +28,7 @@ public class MainTaskActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         dataRepository = new DataRepository(this);
         listAdapter = new ArrayAdapter<Task>(
-                this, android.R.layout.simple_list_item_1, items);
+                this, R.layout.list_item, items);
         setContentView(R.layout.main_task_layout);
         setListAdapter(listAdapter);
     }
